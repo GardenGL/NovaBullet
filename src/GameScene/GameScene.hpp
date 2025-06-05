@@ -60,7 +60,7 @@ public:
             SpawnRandomMeteor();
         }
         // Создаем и добавляем игрока
-        Player *playerPtr = new Player(CELL_SIZE * 2, CELL_SIZE * 2, CELL_SIZE * 2, CELL_SIZE * 2, 2);
+        Player *playerPtr = new Player(GameConstants::CELL_SIZE * 2, GameConstants::CELL_SIZE * 2, GameConstants::CELL_SIZE * 2, GameConstants::CELL_SIZE * 2, 2);
         state.player = playerPtr;
         gameWorld->add_child(playerPtr);
     }

@@ -12,9 +12,6 @@
 #include "BulletManager.h"
 #include "../Camera2D.hpp"
 
-using namespace Math;
-using namespace GameConstants;
-
 class Mob : public GameObject
 {
 private:
@@ -36,13 +33,13 @@ private:
 public:
     Mob(float x, float y) : GameObject("Mob"), x(x), y(y), isDestroyed(false)
     {
-        width = CELL_SIZE * 2;
-        height = CELL_SIZE * 2;
+        width = GameConstants::CELL_SIZE * 2;
+        height = GameConstants::CELL_SIZE * 2;
         hitBox = (HitBox){(Rect){x + width / 2, y + height / 2, width, height}, 100, 0.0f, TEAM_ENEMY};
         rotation = 0.0f;
         speed = 2.0f;
-        searchRadius = CELL_SIZE * 30;
-        shootRadius = CELL_SIZE * 10;
+        searchRadius = GameConstants::CELL_SIZE * 30;
+        shootRadius = GameConstants::CELL_SIZE * 10;
         fireRate = 1.0f;
         nextFireTime = 0.0f;
         bulletSpeed = 5.0f;
@@ -132,7 +129,7 @@ public:
             Color::white, rotation);
 
         // Draw HP bar above the mob
-        float hpBarWidth = CELL_SIZE;
+        float hpBarWidth = GameConstants::CELL_SIZE;
         float hpBarHeight = 5.0f;
         float hpBarOffset = 10.0f;
         float hpPercentage = hitBox.health / 100.0f;

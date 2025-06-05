@@ -7,8 +7,6 @@
 #include "../Camera2D.hpp"
 #include "BulletManager.h"
 
-using namespace GameConstants;
-
 class Player : public GameObject
 {
 private:
@@ -191,8 +189,8 @@ public:
         float targetX = x - Window::width / 2.0f + width / 2.0f;
         float targetY = y - Window::height / 2.0f + height / 2.0f;
 
-        targetX = Utils::clamp(targetX, 0.0f, static_cast<float>(WORLD_WIDTH - Window::width));
-        targetY = Utils::clamp(targetY, 0.0f, static_cast<float>(WORLD_HEIGHT - Window::height));
+        targetX = Utils::clamp(targetX, 0.0f, static_cast<float>(GameConstants::WORLD_WIDTH - Window::width));
+        targetY = Utils::clamp(targetY, 0.0f, static_cast<float>(GameConstants::WORLD_HEIGHT - Window::height));
 
         cameraPos.x += (targetX - cameraPos.x) * 0.1f;
         cameraPos.y += (targetY - cameraPos.y) * 0.1f;
@@ -208,8 +206,8 @@ public:
         x += dx;
         y += dy;
 
-        x = Utils::clamp(x, 0.0f, static_cast<float>(WORLD_WIDTH - width));
-        y = Utils::clamp(y, 0.0f, static_cast<float>(WORLD_HEIGHT - height));
+        x = Utils::clamp(x, 0.0f, static_cast<float>(GameConstants::WORLD_WIDTH - width));
+        y = Utils::clamp(y, 0.0f, static_cast<float>(GameConstants::WORLD_HEIGHT - height));
     }
 
     void move(int jumpKey, int downKey, int leftKey, int rightKey)
@@ -241,7 +239,7 @@ public:
     double getY() const { return y; }
     double getWidth() const { return width; }
     double getHeight() const { return height; }
-    int getCellX() const { return x / CELL_SIZE; }
-    int getCellY() const { return y / CELL_SIZE; }
+    int getCellX() const { return x / GameConstants::CELL_SIZE; }
+    int getCellY() const { return y / GameConstants::CELL_SIZE; }
     HitBox *getHitBox() { return &hitBox; }
 };
